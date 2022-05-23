@@ -1,0 +1,9 @@
+[
+  {
+    "outputFileName": "Scripts/bundle.min.js",
+    "inputFiles": [
+      //"Scripts/paging.js",
+      "Scripts/script.js"
+    ]
+  }
+]
