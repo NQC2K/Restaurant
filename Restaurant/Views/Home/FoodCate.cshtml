@@ -5,9 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section scripts{
-    <script src="~/Scripts/plugins/twbsPagination.min.js"></script>
-    <script src="~/Scripts/homeController.js"></script>
-    <script src="~/Scripts/plugins/mustache.min.js"></script>
+    @*<script src="~/Scripts/foodcate/foodcate.min.js"></script>*@
+    <script src="~/Scripts/foodcate/mustache.min.js"></script>>
+    <script src="~/Scripts/foodcate/twbsPagination.min.js"></script>
+    <script src="~/Scripts/foodcate/homeController.js"></script>
 }
 <header class="header">
 
@@ -24,7 +25,7 @@
 
     <div class="icons">
         <div id="menu-btn" class="fas fa-bars"></div>
-        <div id="search-btn" class="fas fa-search"></div>
+        @*<div id="search-btn" class="fas fa-search"></div>*@
         <div id="cart-btn" class="fas fa-shopping-cart"></div>
         <div id="login-btn" class="fas fa-user"></div>
     </div>
@@ -33,81 +34,72 @@
 <!-- header section ends  -->
 <!-- search-form  -->
 @*<section class="search-form-container">
-
-        <form action="">
-            <input type="search" name="" placeholder="search here..." id="search-box">
-            <label for="search-box" class="fas fa-search"></label>
+        <form action="" method="post" class="form-control">
+            <input type="text" class="form-control" id="txtSearch" placeholder="search here..." />
+            <button class="btn btn-primary" id="btnSearch">
+                <i class="fas fa-search"></i>
+            </button>
         </form>
-    </section>
+    </section>*@
 
-
-    <section class="popular" id="popular">
-        <div class="heading">
-            <span>menu</span>
-            <h3>our dishes</h3>
-        </div>*@
-
-@*<div class="box-container">*@
-<div class="row">
-    <div class="col-md-12">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <td>FoodID</td>
-                    <td>FoodName</td>
-                    <td>CateId</td>
-                    <td>Description</td>
-                    <td>Price</td>
-                    <td>Image</td>
-                </tr>
-            </thead>
-            <tbody id="tblData">
-            </tbody>
-        </table>
-        <div class="center">
-            <div id="pagination" class="pagination center">
-
+@*<div class="row">
+        <div class="col-md-12">
+            <div class="col-md-4">
+                <input type="text" class="form-control" id="txtSearch" placeholder="Type name" />
+            </div>
+            <div class="col-md-4">
+                <select class="form-control" id="ddlStatusS">
+                    <option value="">All</option>
+                    <option value="true">Active</option>
+                    <option value="false">Inactive</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary" id="btnSearch">Search</button>
+                <button class="btn btn-default" id="btnReset">Reset</button>
+            </div>
+            <div class="col-md-1">
+                <button id="btnAddNew" class="btn btn-success pull-right">Add employee</button>
             </div>
         </div>
-        
+    </div>*@
 
-        <script id="data-template" type="x-tmpl-mustache">
-        <tr>
-            <td>{{FoodID}}</td>
-            <td>{{FoodName}}</td>
-            <td>{{CateId}}</td>
-            <td>{{Description}}</td>
-            <td>{{Price}}</td>
-            <td>{{Image}}</td>
-        </tr>
-        </script>
+<section class="popular" id="popular">
+    <div class="search">
+        <input type="text" id="txtSearch" placeholder="Type food name" />
+        <button class="btn btn-primary" id="btnSearch"><i class="fas fa-search"></i></button>
     </div>
-</div>
+    <div class="heading">
+        <span>menu</span>
+        <h3>our dishes</h3>
+    </div>
 
-@*@foreach (var item in Model)
-    {
+    <div class="box-container" id="tblData">
+    </div>
+    <div class="center">
+        <div id="pagination" class="pagination center">
+        </div>
+    </div>
+    <script id="data-template" type="x-tmpl-mustache">
         <div class="box">
             <a href="#" class="fas fa-heart"></a>
             <div class="image">
-                <a href="@Url.Action("FoodDetails", "Home", new {id = item.FoodID})">
-                    <img src="~/Content/images/@item.Image" alt="">
+                <a href="">
+                    <img src="/Content/images/{{Image}}" alt="">
                 </a>
             </div>
             <div class="content">
-                <h3>@item.FoodName</h3>
+                <h3>{{FoodName}}</h3>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
-                    <span> (50) </span>
                 </div>
-                <div class="price">@item.Price VND <span>50000 VND</span></div>
+                <div class="price">{{PriceDiscount}}VND <span>{{Price}}VND</span></div>
                 <a href="#" class="btn">add to cart</a>
             </div>
         </div>
-    }*@
-@*</div>*@
-@*</section>*@
-
+    </script>
+</section>

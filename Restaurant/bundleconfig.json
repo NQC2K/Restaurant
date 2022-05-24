@@ -2,8 +2,15 @@
   {
     "outputFileName": "Scripts/bundle.min.js",
     "inputFiles": [
-      //"Scripts/paging.js",
       "Scripts/script.js"
     ]
   }
+  //{
+  //  "outputFileName": "Scripts/foodcate/foodcate.min.js",
+  //  "inputFiles": [
+  //    "Scripts/foodcate/homeController.js",
+  //    "Scripts/foodcate/mustache.min.js",
+  //    "Scripts/foodcate/twbsPagination.min.js"
+  //  ]
+  //}
 ]
