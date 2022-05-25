@@ -7,6 +7,7 @@ using System.Web;
 
 namespace Restaurant.Models
 {
+    [Table("Order")]
     public class Order
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -19,11 +20,16 @@ namespace Restaurant.Models
         [StringLength(50)]
         [Column(TypeName = "varchar")]
         [Required]
-        public string ShipAddress { get; set; }
+        public string ShipPhoneNumber { get; set; }
         [StringLength(50)]
+        [Column(TypeName = "varchar")]
+        [Required]
+        public string ShipAddress { get; set; }
+        [StringLength(255)]
         [Column(TypeName = "varchar")]
         [Required]
         public string ShipEmail { get; set; }
         public int Status { get; set; }
+        public double Total { get; set; }
     }
 }

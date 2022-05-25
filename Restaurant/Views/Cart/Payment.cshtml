@@ -1,14 +1,7 @@
-﻿@model List<Restaurant.Models.CartItem>
+﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Payment";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-@section scripts{
-    <script src="~/Scripts/cart/cartController.js"></script>
-}
-@{
-    Html.RenderAction("PartialHeader", "Home");
 }
 <section class="shopping-cart-container">
 
@@ -30,7 +23,7 @@
                     <div class="content">
                         <h3>@item.Food.FoodName</h3>
                         <span> quantity: </span>
-                        <input type="number" name="" value="@item.Quantity" id="">
+                        <span>@item.Quantity</span>
                         <br>
                         <span> rate: </span>
                         <span class="price"> @item.Food.PriceDiscount VND</span>
@@ -48,9 +41,39 @@
         <h3 class="title"> cart total </h3>
 
         <div class="box">
-                @*<h3 class="subtotal"> subtotal : <span>$200</span> </h3>*@
+            @*<h3 class="subtotal"> subtotal : <span>$200</span> </h3>*@
             <h3 class="total"> total : <span></span>@Total VND</h3>
-                <a href="#" class="btn" id="btn-payment">proceed to checkout</a>
-            </div>
+            @*<a href="#" class="btn" id="btn-payment">proceed to checkout</a>*@
+        </div>
+    </div>
+
+    <div class="section group">
+        <div class="col-md-6">
+            @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
+            {
+                <div class="form-group">
+                    <label>Name:</label>
+                    <input name="ShipName" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Phone:</label>
+                    <input name="ShipPhoneNumber" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Address:</label>
+                    <input name="ShipAddress" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input name="ShipEmail" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Total</label>
+                    <input name="Total"class="form-control" value="@Total"/>
+                </div>
+                <button type="submit" class="btn">Confirm</button>
+            }
+        </div>
     </div>
 </section>
+

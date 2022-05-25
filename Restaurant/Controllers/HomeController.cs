@@ -1,5 +1,6 @@
 ﻿using Restaurant.DAL;
 using Restaurant.Models;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -76,9 +77,20 @@ namespace Restaurant.Controllers
             return View();
         }
         [ChildActionOnly]
-        public ActionResult PartialCart()
+        public PartialViewResult PartialCart()
         {
             return PartialView("_PartialCart");
+        }
+        [ChildActionOnly]
+        public PartialViewResult PartialHeader()
+        {
+            var cart = Session[SessionValue.CartSession];
+            var list = new List<CartItem>();
+            if(cart!= null)
+            {
+                list = (List<CartItem>)cart;
+            }
+            return PartialView("_PartialHeader", list);
         }
     }
 }
