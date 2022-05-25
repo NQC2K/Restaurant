@@ -36,6 +36,7 @@ var homeController = {
                     var template = $('#data-template').html();
                     $.each(data, function (i, item) {
                         html += Mustache.render(template, {
+                            FoodID: item.FoodID,
                             FoodName: item.FoodName,
                             Price: item.Price,
                             PriceDiscount: item.PriceDiscount,

@@ -169,6 +169,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\FoodController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -180,11 +181,22 @@
     <Compile Include="Migrations\202205231340401_CreatedDB.designer.cs">
       <DependentUpon>202205231340401_CreatedDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205241814454_Order.cs" />
+    <Compile Include="Migrations\202205241814454_Order.designer.cs">
+      <DependentUpon>202205241814454_Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205242014137_Price.cs" />
+    <Compile Include="Migrations\202205242014137_Price.designer.cs">
+      <DependentUpon>202205242014137_Price.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Food.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -244,6 +256,7 @@
     <Content Include="Content\css\style.scss" />
     <None Include="bundleconfig.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\cart\cartController.js" />
     <Content Include="Scripts\foodcate\foodcate.min.js" />
     <Content Include="Scripts\foodcate\homeController.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -296,9 +309,12 @@
     <Content Include="Views\Home\FoodDetails.cshtml" />
     <Content Include="Views\Home\FoodCate.cshtml" />
     <Content Include="Views\Home\GetPaggedData.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Shared\_PartialCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\CartItem\" />
     <Folder Include="Views\Food\" />
   </ItemGroup>
   <ItemGroup>
@@ -317,6 +333,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202205231340401_CreatedDB.resx">
       <DependentUpon>202205231340401_CreatedDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205241814454_Order.resx">
+      <DependentUpon>202205241814454_Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205242014137_Price.resx">
+      <DependentUpon>202205242014137_Price.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

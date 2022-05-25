@@ -1,0 +1,94 @@
+﻿@model List<Restaurant.Models.CartItem>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<div class="content">
+    <div class="section group">
+        @if (Model.Count > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Mã SP</td>
+                        <td>Tên SP</td>
+                        <td>Ảnh SP</td>
+                        <td>Số lượng</td>
+                        <td>Đơn giá</td>
+                        <td>Thành tiền</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Food.FoodID</td>
+                            <td>@item.Food.FoodName</td>
+                            <td><img src="~/Content/images/@item.Food.Image" width="100" /></td>
+                            <td><input type="text" class="txtQuantity" data-id="@item.Food.FoodID" value="@item.Quantity" /></td>
+                            <td>@item.Food.PriceDiscount.GetValueOrDefault(0).ToString("N0")</td>
+                            <td>@((item.Food.PriceDiscount.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
+                            <td><a href="#" data-id="@item.Food.FoodID" class="btn-delete">Xoá</a></td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+            <button id="btnContinue" class="btn">Tiếp tục mua hàng</button>
+            <button id="btnUpdate" class="btn">Cập nhật giỏ hàng</button>
+            <button id="btnDeleteAll" class="btn">Xoá giỏ hàng</button>
+            <button id="btnPayment" class="btn">Thanh toán</button>
+        }
+        else
+        {
+            <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>
+        }
+
+    </div>
+</div>*@
+
+<section class="shopping-cart-container">
+
+    <div class="products-container">
+
+        <h3 class="title">your products</h3>
+
+        <div class="box-container">
+            @foreach (var item in Model)
+            {
+                <div class="box">
+                    <i class="fas fa-times"></i>
+                    <img src="~/Content/images/@item.Food.Image" alt="">
+                    <div class="content">
+                        <h3>@item.Food.FoodName</h3>
+                        <span> quantity: </span>
+                        <input type="number" name="" value="@item.Quantity" id="">
+                        <br>
+                        <span> price: </span>
+                        <span class="price"> @item.Food.PriceDiscount.GetValueOrDefault(0).ToString("N0") </span>
+                        <span> total: </span>
+                        <span class="price"> @((item.Food.PriceDiscount.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</span>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </div>
+
+    <div class="cart-total">
+
+        <h3 class="title"> cart total </h3>
+
+        <div class="box">
+
+            <h3 class="subtotal"> subtotal : <span>$200</span> </h3>
+            <h3 class="total"> total : <span>$200</span> </h3>
+
+            <a href="#" class="btn">proceed to checkout</a>
+        </div>
+    </div>
+</section>

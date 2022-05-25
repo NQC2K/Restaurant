@@ -1,0 +1,44 @@
+﻿@model List<Restaurant.Models.CartItem>
+<!-- shopping-cart section  -->
+@*<section class="shopping-cart-container">
+
+    <div class="products-container">
+
+        <h3 class="title">your products</h3>
+
+        <div class="box-container">
+            @foreach (var item in Model)
+            {
+                <div class="box">
+                    <i class="fas fa-times"></i>
+                    <img src="~/Content/images/@item.Food.Image" alt="">
+                    <div class="content">
+                        <h3>@item.Food.FoodName</h3>
+                        <span> quantity: </span>
+                        <input type="number" name="" value="@item.Quantity" id="">
+                        <br>
+                        <span> price: </span>
+                        <span class="price"> @item.Food.PriceDiscount.GetValueOrDefault(0).ToString("N0") </span>
+                        <span> total: </span>
+                        <span class="price"> @((item.Food.PriceDiscount.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</span>
+                    </div>
+                </div>
+            }
+                
+
+            </div>
+    </div>
+
+    <div class="cart-total">
+
+        <h3 class="title"> cart total </h3>
+
+        <div class="box">
+
+            <h3 class="subtotal"> subtotal : <span>$200</span> </h3>
+            <h3 class="total"> total : <span>$200</span> </h3>
+
+            <a href="#" class="btn">proceed to checkout</a>
+        </div>
+    </div>
+</section>*@

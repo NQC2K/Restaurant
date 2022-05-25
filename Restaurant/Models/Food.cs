@@ -19,8 +19,8 @@ namespace Restaurant.Models
         public int CateId { get; set; }
         [Required]
         public string Description { get; set; }
-        public double Price { get; set; }
-        public double PriceDiscount { get; set; }
+        public double? Price { get; set; }
+        public double? PriceDiscount { get; set; }
         [Required]
         public string Image { get; set; }
 

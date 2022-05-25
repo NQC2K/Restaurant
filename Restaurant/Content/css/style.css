@@ -209,7 +209,6 @@ section {
     background: #fff;
     overflow-y: scroll;
     padding-bottom: 8rem;
-    display: none;
 }
 
     .shopping-cart-container.active {

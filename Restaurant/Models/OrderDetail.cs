@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Restaurant.Models
 {
-    public class OrderDetails
+    public class OrderDetail
     {
         [Key]
         [Column(Order = 0)]

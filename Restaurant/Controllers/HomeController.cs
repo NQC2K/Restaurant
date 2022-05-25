@@ -75,5 +75,10 @@ namespace Restaurant.Controllers
 
             return View();
         }
+        [ChildActionOnly]
+        public ActionResult PartialCart()
+        {
+            return PartialView("_PartialCart");
+        }
     }
 }
