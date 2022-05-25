@@ -181,9 +181,9 @@
     <Compile Include="Migrations\202205251149203_CreateDB.designer.cs">
       <DependentUpon>202205251149203_CreateDB.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202205251153446_OrderDetail.cs" />
-    <Compile Include="Migrations\202205251153446_OrderDetail.designer.cs">
-      <DependentUpon>202205251153446_OrderDetail.cs</DependentUpon>
+    <Compile Include="Migrations\202205251948322_UpdateDB.cs" />
+    <Compile Include="Migrations\202205251948322_UpdateDB.designer.cs">
+      <DependentUpon>202205251948322_UpdateDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -311,6 +311,7 @@
     <Content Include="Views\Shared\_PartialHeader.cshtml" />
     <Content Include="Views\Cart\Payment.cshtml" />
     <Content Include="Views\Cart\Success.cshtml" />
+    <Content Include="Views\Cart\Fail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -334,8 +335,8 @@
     <EmbeddedResource Include="Migrations\202205251149203_CreateDB.resx">
       <DependentUpon>202205251149203_CreateDB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205251153446_OrderDetail.resx">
-      <DependentUpon>202205251153446_OrderDetail.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202205251948322_UpdateDB.resx">
+      <DependentUpon>202205251948322_UpdateDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

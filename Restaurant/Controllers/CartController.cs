@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace Restaurant.Controllers
 {
@@ -63,13 +64,28 @@ namespace Restaurant.Controllers
                 list.Add(item);
                 Session[SessionValue.CartSession] = list;
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("../Home/FoodCate");
+        }
+        public JsonResult Update(string cartModel)
+        {
+            var jsonCart = new JavaScriptSerializer().Deserialize<List<CartItem>>(cartModel);
+            var sessionCart = (List<CartItem>)Session[SessionValue.CartSession];
+            foreach(var item in sessionCart)
+            {
+                var jsonItem = jsonCart.SingleOrDefault(x => x.Food.FoodID == item.Food.FoodID);
+                if(jsonItem != null)
+                {
+                    item.Quantity = jsonItem.Quantity;
+                }
+            }
+            Session[SessionValue.CartSession] = sessionCart;
+            return Json(new { status = true });
         }
         public JsonResult Delete(int id)
         {
             var sessionCart = (List<CartItem>)Session[SessionValue.CartSession];
             sessionCart.RemoveAll(x => x.Food.FoodID == id);
-            Session[SessionValue.CartSession]=sessionCart;
+            Session[SessionValue.CartSession] = sessionCart;
             return Json(new { status = true });
         }
         public ActionResult Payment()
@@ -107,14 +123,14 @@ namespace Restaurant.Controllers
                     orderDetail.Quantity = item.Quantity;
                     _context.OrderDetails.Add(orderDetail);
                     _context.SaveChanges();
-                    orderDetail.OrderDetailID += 1;
                 }
+                Session.Clear();
+                return View("Success");
             }
             catch(Exception)
             {
-                throw;
-            }          
-            return View("Success");
+                return View("Fail");
+            }                 
         }
         public ActionResult Success()
         {

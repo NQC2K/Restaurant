@@ -30,7 +30,7 @@
                     <div class="content">
                         <h3>@item.Food.FoodName</h3>
                         <span> quantity: </span>
-                        <input type="number" name="" value="@item.Quantity" id="">
+                        <input type="number" class="qty" value="@item.Quantity" data-id="@item.Food.FoodID"/>
                         <br>
                         <span> rate: </span>
                         <span class="price"> @item.Food.PriceDiscount VND</span>
@@ -53,4 +53,8 @@
                 <a href="#" class="btn" id="btn-payment">proceed to checkout</a>
             </div>
     </div>
+    <br />
+    @*<div class="heading">*@
+        <a href="/Home/FoodCate"><h2><i class="fa-thin fa-angles-left">Back</i></h2></a>
+    @*</div>*@ 
 </section>

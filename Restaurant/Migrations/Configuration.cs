@@ -1,10 +1,7 @@
 ﻿namespace Restaurant.Migrations
 {
     using Restaurant.Models;
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Restaurant.DAL.FoodDbContext>
     {
@@ -20,16 +17,16 @@
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
             context.Foods.AddOrUpdate(
-                new Food
-                {
-                    FoodID = 1,
-                    FoodName = "Mandu",
-                    CateId = 1,
-                    Description = "Updating...",
-                    Price = 50000,
-                    PriceDiscount = 30000,
-                    Image = "food-1.png"
-                },
+            new Food
+            {
+                FoodID = 1,
+                FoodName = "Mandu",
+                CateId = 1,
+                Description = "Updating...",
+                Price = 50000,                
+                PriceDiscount = 30000,
+                Image = "food-1.png"
+            },
             new Food
             {
                 FoodID = 2,
