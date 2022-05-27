@@ -4,7 +4,7 @@
     },
     regEvents: function () {
         $('#btn-payment').off('click').on('click', function () {
-            window.location.href = "/Cart/Payment";
+            window.location.href = "/payment";
         });
         $('.qty').on('change', function () {
             var list = $('.qty');
@@ -24,7 +24,7 @@
                 type: 'POST',
                 success: function (res) {
                     if (res.status == true) {
-                        window.location.href = "/Cart/Index";
+                        window.location.href = "/cart";
                     } else {
                         alert("Error");
                     }
@@ -40,7 +40,7 @@
                 type: 'POST',
                 success: function (res) {
                     if (res.status == true) {
-                        window.location.href = "/Cart/Index";
+                        window.location.href = "/cart";
                     }
                 }
             })

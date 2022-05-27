@@ -4,13 +4,19 @@
     "inputFiles": [
       "Scripts/script.js"
     ]
+  },
+  {
+    "outputFileName": "Scripts/foodcate/foodcate.min.js",
+    "inputFiles": [
+      "Scripts/foodcate/homeController.js",
+      "Scripts/foodcate/mustache.min.js",
+      "Scripts/foodcate/twbsPagination.min.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/cart/cartController.min.js",
+    "inputFiles": [
+      "Scripts/cart/cartController.js"
+    ]
   }
-  //{
-  //  "outputFileName": "Scripts/foodcate/foodcate.min.js",
-  //  "inputFiles": [
-  //    "Scripts/foodcate/homeController.js",
-  //    "Scripts/foodcate/mustache.min.js",
-  //    "Scripts/foodcate/twbsPagination.min.js"
-  //  ]
-  //}
 ]

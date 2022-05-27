@@ -20,12 +20,13 @@ namespace Restaurant.Controllers
             //FoodViewModel model = new FoodViewModel();
             //List<Food> Foods = new List<Food>();
             //Foods = GetFoods();
-            var model = _context.Foods;
+            var model = _context.Foods.OrderBy(p => p.FoodID).ToList();
             return View(model);
         }
 
         public ActionResult FoodDetails(int id)
         {
+            ViewBag.id = id;
             var model = _context.Foods.Where(p => p.FoodID == id).First();
             return View(model);
         }
@@ -76,11 +77,7 @@ namespace Restaurant.Controllers
 
             return View();
         }
-        [ChildActionOnly]
-        public PartialViewResult PartialCart()
-        {
-            return PartialView("_PartialCart");
-        }
+
         [ChildActionOnly]
         public PartialViewResult PartialHeader()
         {

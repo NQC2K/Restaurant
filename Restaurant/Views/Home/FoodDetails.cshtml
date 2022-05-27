@@ -1,15 +1,25 @@
 ﻿@model Restaurant.Models.Food
 
 @{
-    ViewBag.Title = "FoodDetails";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Html.RenderAction("PartialHeader", "Home");
 }
-
-<section class="popular" id="popular">
-    <h2>FoodDetails</h2>
-    <p>@Model.FoodName</p>
-    <p>@Model.CateId</p>
-    <p>@Model.Description</p>
-    <p>@Model.Price</p>
-    <p><img width="250" height="250" src="@("/Content/images/"+Model.Image)" asp-append-version="true" /></p>
-</section>
+<div>
+    <div class="heading left" id="details-left">
+        <img width="400" height="400" src="@("/Content/images/"+Model.Image)" asp-append-version="true" />
+        <span>@Model.Description</span>
+    </div>
+    <div class="heading right" id="details-right">
+        <span>@Model.FoodName</span>
+        <br />
+        <span>@Model.Price VND</span>
+        <br />
+        <a href="/Cart/AddItem?foodid=@Model.FoodID&quantity=1" class="btn">add to cart</a>
+    </div>
+    
+</div>
+    @*<p><img width="300" height="300" src="@("/Content/images/"+Model.Image)" asp-append-version="true" /></p>
+        <div>
+            <p>@Model.CateId</p>
+            <p>@Model.Description</p>
+            <p>@Model.Price</p>
+        </div>*@

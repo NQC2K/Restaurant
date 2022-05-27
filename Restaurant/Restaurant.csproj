@@ -254,6 +254,9 @@
     <None Include="bundleconfig.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\cart\cartController.js" />
+    <Content Include="Scripts\cart\cartController.min.js">
+      <DependentUpon>cartController.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\foodcate\foodcate.min.js" />
     <Content Include="Scripts\foodcate\homeController.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -305,9 +308,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\FoodDetails.cshtml" />
     <Content Include="Views\Home\FoodCate.cshtml" />
-    <Content Include="Views\Home\GetPaggedData.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
-    <Content Include="Views\Shared\_PartialCart.cshtml" />
     <Content Include="Views\Shared\_PartialHeader.cshtml" />
     <Content Include="Views\Cart\Payment.cshtml" />
     <Content Include="Views\Cart\Success.cshtml" />

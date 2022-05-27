@@ -64,7 +64,7 @@ namespace Restaurant.Controllers
                 list.Add(item);
                 Session[SessionValue.CartSession] = list;
             }
-            return RedirectToAction("../Home/FoodCate");
+            return RedirectToAction("../Home/Index");
         }
         public JsonResult Update(string cartModel)
         {

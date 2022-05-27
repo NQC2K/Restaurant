@@ -4,7 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="alert alert-success">
-    Success
+@{
+    Html.RenderAction("PartialHeader", "Home");
+}
+<div class="heading">
+    <h3>order success</h3>
 </div>
-
+<br />
+<a href="/"><h2><i class="fa-thin fa-angles-left">Back to home page</i></h2></a>

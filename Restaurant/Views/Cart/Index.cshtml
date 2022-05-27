@@ -5,13 +5,12 @@
 }
 
 @section scripts{
-    <script src="~/Scripts/cart/cartController.js"></script>
+    <script src="~/Scripts/cart/cartController.min.js"></script>
 }
 @{
     Html.RenderAction("PartialHeader", "Home");
 }
 <section class="shopping-cart-container">
-
     <div class="products-container">
 
         <h3 class="title">your products</h3>
@@ -30,7 +29,7 @@
                     <div class="content">
                         <h3>@item.Food.FoodName</h3>
                         <span> quantity: </span>
-                        <input type="number" class="qty" value="@item.Quantity" data-id="@item.Food.FoodID"/>
+                        <input type="number" class="qty" value="@item.Quantity" data-id="@item.Food.FoodID" />
                         <br>
                         <span> rate: </span>
                         <span class="price"> @item.Food.PriceDiscount VND</span>
@@ -42,11 +41,8 @@
             }
         </div>
     </div>
-
     <div class="cart-total">
-
         <h3 class="title"> cart total </h3>
-
         <div class="box">
                 @*<h3 class="subtotal"> subtotal : <span>$200</span> </h3>*@
             <h3 class="total"> total : <span></span>@Total VND</h3>
@@ -55,6 +51,6 @@
     </div>
     <br />
     @*<div class="heading">*@
-        <a href="/Home/FoodCate"><h2><i class="fa-thin fa-angles-left">Back</i></h2></a>
+        <a href="/category"><h2><i class="fa-thin fa-angles-left">Back</i></h2></a>
     @*</div>*@ 
 </section>
