@@ -1,10 +1,13 @@
 ﻿@model List<Restaurant.Models.Food>
 
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 @{
     Html.RenderAction("PartialHeader", "Home");
 }
-
-
 <!-- login-form  -->
 
 <div class="login-form-container">
@@ -123,33 +126,33 @@
 
     <div class="box-container">
         @foreach (var item in Model)
-            {
-                <div class="box">
-                    <a href="#" class="fas fa-heart"></a>
-                    <div class="image">
-                        <a href="@Url.Action("FoodDetails", "Home", new {id = item.FoodID})">
-                            <img src="~/Content/images/@item.Image" alt="">
-                        </a>
-                    </div>
-                    <div class="content">
-                        <h3>@item.FoodName</h3>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span> (50) </span>
-                        </div>
-                        <div class="price">@item.PriceDiscount VND <span>@item.Price VND</span></div>
-                        <a href="/Cart/AddItem?foodid=@item.FoodID&quantity=1" class="btn">add to cart</a>
-                    </div>
+        {
+            <div class="box">
+                <a href="#" class="fas fa-heart"></a>
+                <div class="image">
+                    <a href="@Url.Action("FoodDetails", "Home", new {id = item.FoodID})">
+                        <img src="~/Content/images/@item.Image" alt="">
+                    </a>
                 </div>
-            }
+                <div class="content">
+                    <h3>@item.FoodName</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span> (50) </span>
+                    </div>
+                    <div class="price">@item.PriceDiscount VND <span>@item.Price VND</span></div>
+                    <a href="/Cart/AddItem?foodid=@item.FoodID&quantity=1" class="btn">add to cart</a>
+                </div>
+            </div>
+        }
     </div>
     @*<div class="box-container">
-        <a href="#" class="view-more">view more</a>
-    </div>*@
+            <a href="#" class="view-more">view more</a>
+        </div>*@
 </section>
 
 <!-- popular section ends -->

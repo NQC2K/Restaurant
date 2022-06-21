@@ -12,6 +12,8 @@ namespace Restaurant.DAL
         public DbSet<Food> Foods { set; get; }
         public DbSet<Order> Orders { set; get; }
         public DbSet<OrderDetail> OrderDetails { set; get; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Role> Roles { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

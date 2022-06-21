@@ -7,14 +7,12 @@
     {
         public override void Up()
         {
-            DropPrimaryKey("dbo.OrderDetail");
-            AddPrimaryKey("dbo.OrderDetail", new[] { "OrderID", "FoodID" });
+            AlterColumn("dbo.Foods", "Image", c => c.String());
         }
         
         public override void Down()
         {
-            DropPrimaryKey("dbo.OrderDetail");
-            AddPrimaryKey("dbo.OrderDetail", new[] { "FoodID", "OrderID" });
+            AlterColumn("dbo.Foods", "Image", c => c.String(nullable: false));
         }
     }
 }

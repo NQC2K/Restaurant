@@ -168,9 +168,13 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Admin\Infrastructure\CustomAuthenticationFilter.cs" />
+    <Compile Include="Areas\Admin\Infrastructure\CustomAuthorizeAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
-    <Compile Include="Controllers\FoodController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="DAL\FoodDbContext.cs" />
@@ -181,9 +185,13 @@
     <Compile Include="Migrations\202205251149203_CreateDB.designer.cs">
       <DependentUpon>202205251149203_CreateDB.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202205251948322_UpdateDB.cs" />
-    <Compile Include="Migrations\202205251948322_UpdateDB.designer.cs">
-      <DependentUpon>202205251948322_UpdateDB.cs</DependentUpon>
+    <Compile Include="Migrations\202205301425196_UpdateDB.cs" />
+    <Compile Include="Migrations\202205301425196_UpdateDB.designer.cs">
+      <DependentUpon>202205301425196_UpdateDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205301843001_Account.cs" />
+    <Compile Include="Migrations\202205301843001_Account.designer.cs">
+      <DependentUpon>202205301843001_Account.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -193,11 +201,14 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionValue.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Admin.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -248,9 +259,22 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\admin\adminController.js" />
+    <Content Include="Scripts\admin\script.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\css\style.scss" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Food.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_PartialNavbar.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_PartialSideNavbar.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_PartialFooter.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\_AddUpdateModal.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\UnAuthorized.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LoginLayout.cshtml" />
     <None Include="bundleconfig.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\cart\cartController.js" />
@@ -316,8 +340,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\CartItem\" />
-    <Folder Include="Views\Food\" />
+    <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -336,8 +359,11 @@
     <EmbeddedResource Include="Migrations\202205251149203_CreateDB.resx">
       <DependentUpon>202205251149203_CreateDB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205251948322_UpdateDB.resx">
-      <DependentUpon>202205251948322_UpdateDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202205301425196_UpdateDB.resx">
+      <DependentUpon>202205301425196_UpdateDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205301843001_Account.resx">
+      <DependentUpon>202205301843001_Account.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

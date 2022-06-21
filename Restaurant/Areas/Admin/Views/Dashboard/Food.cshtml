@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "Food";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/admin/script.js"></script>
+    <script src="~/Scripts/foodcate/mustache.min.js"></script>
+    <script src="~/Scripts/foodcate/twbsPagination.min.js"></script>
+    <script src="~/Scripts/admin/adminController.js"></script>
+}
+@{
+    Html.RenderAction("PartialNavbar", "Dashboard");
+}
+<div id="layoutSidenav">
+    @{
+        Html.RenderAction("PartialSideNavbar", "Dashboard");
+    }
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4">
+                <h1 class="mt-4">Tables</h1>
+                <button id="btnAddNew" class="btn btn-info pull-right"><i class="fa fa-plus"></i>Add New Food</button>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Tables</li>
+                </ol>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table me-1"></i>
+                        Foods Table
+                    </div>
+                    <div class="card-body">
+                        <table id="datatablesSimple" class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Image</th>
+                                    <th>Food Name</th>
+                                    <th>Description</th>
+                                    <th>Price</th>
+                                    <th>Price Discount</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Image</th>
+                                    <th>Food Name</th>
+                                    <th>Description</th>
+                                    <th>Price</th>
+                                    <th>Price Discount</th>
+                                    <th>Action</th>
+                                </tr>
+                            </tfoot>
+                            <tbody id="tblData">
+                            </tbody>
+                        </table>
+                        <div id="pagination" class="pagination">
+                        </div>
+                    </div>
+                    <script id="data-template" type="x-tmpl-mustache">
+                        <tr>
+                            <td>{{ FoodID }}</td>
+                            <td>
+                                <img src="/Content/images/{{ Image }}" alt="">
+                            </td>
+                            <td>{{ FoodName }}</td>
+                            <td>{{ Description }}</td>
+                            <td>{{ Price }} VND</td>
+                            <td>{{ PriceDiscount }} VND</td>
+                            <td>
+                                @*<button class="btn btn-primary btn-primary" data-id="{{FoodID}}"><i class="fa-solid fa-circle-info"></i></button>*@
+                                <button class="btn btn-success btn-edit" data-id="{{FoodID}}"><i class="fa-solid fa-pen"></i></button>
+                                <button class="btn btn-danger btn-delete" data-id="{{FoodID}}"><i class="fa-solid fa-trash-can"></i></button>
+                            </td>
+                        </tr>
+                    </script>
+                </div>
+            </div>
+            @RenderPage("_AddUpdateModal.cshtml")
+        </main>
+        @{
+            Html.RenderAction("PartialFooter", "Dashboard");
+        }
+    </div>
+</div>
+
+
+
